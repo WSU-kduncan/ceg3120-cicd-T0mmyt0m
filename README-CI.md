@@ -58,3 +58,47 @@ Replace `YOUR_APP_NAME` with your actual build folder name.
 Container side: Confirm http-server reports listening on `http://127.0.0.1:4200`
 
 Host side: Visit [http://localhost:4200](http://localhost:4200) in a browser
+
+## 3. Dockerfile & Building Images
+### Dockerfile Overview
+
+Recall Step 2 as we are now performing the same actions, but this time within a `dockerfile`.
+
+dockerfile
+```
+FROM node:18-bullseye
+WORKDIR /app
+COPY wsu-hw-ng-main/ .
+RUN npm install -g @angular/cli \
+    && npm install \
+    && ng build --configuration production \
+    && npm install -g http-server
+CMD ["http-server", "dist/wsu-hw-ng-main", "-p", "4200"]
+```
+
+### Summary:
+
+- Uses Node 18 base image
+
+- Copies the Angular project into the container
+
+- Installs Angular CLI and app dependencies
+
+- Builds the Angular app
+
+- Uses http-server to serve the build
+
+Building the Image:
+```
+docker build -t yourdockerhubusername/projectname .
+```
+
+Run the Container from Image:
+```
+docker run -p 4200:4200 yourdockerhubusername/projectname
+```
+
+### Validation
+Container side: http-server should output available URLs
+
+Host side: Visit [http://localhost:4200](http://localhost:4200) to confirm app is live
