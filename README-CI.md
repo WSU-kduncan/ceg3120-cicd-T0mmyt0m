@@ -1,6 +1,6 @@
 # Angular Container Deployment - CI Guide - Windows OS
 
-## Docker Setup
+## 1. Docker Setup
 
 ### Installing Docker
 - **Windows:** Download and install Docker Desktop from [Docker](https://www.docker.com/products/docker-desktop/)
