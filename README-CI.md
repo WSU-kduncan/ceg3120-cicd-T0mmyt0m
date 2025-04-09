@@ -134,6 +134,6 @@ docker push yourdockerhubusername/projectname
 ```
 
 Repository Link
-```
-https://hub.docker.com/repository/docker/YOUR_DOCKERHUB_USERNAME/YOUR_REPO_NAME
-```
+
+[https://hub.docker.com/repository/docker/tummyz0/pua-ceg3120](https://hub.docker.com/repository/docker/tummyz0/pua-ceg3120)
+
