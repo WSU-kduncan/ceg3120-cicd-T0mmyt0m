@@ -10,6 +10,7 @@
 - **Linux/macOS:** No additional dependencies required
 
 ### Confirming Docker Installation
-To verify Docker is installed correctly:
+To verify Docker is installed correctly (command prompt/powershell):
 ```bash
 docker --version
+```
