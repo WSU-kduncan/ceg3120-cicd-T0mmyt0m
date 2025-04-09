@@ -52,9 +52,9 @@ Install HTTP server and serve the app:
 npm install -g http-server
 http-server dist/YOUR_APP_NAME -p 4200
 ```
-Replace YOUR_APP_NAME with your actual build folder name (e.g., dist/wsu-hw-ng-main).
+Replace `YOUR_APP_NAME` with your actual build folder name.
 
 ### Validation
-Container side: Confirm http-server reports listening on http://127.0.0.1:4200
+Container side: Confirm http-server reports listening on `http://127.0.0.1:4200`
 
-Host side: Visit http://localhost:4200 in a browser
+Host side: Visit [http://localhost:4200](http://localhost:4200) in a browser
