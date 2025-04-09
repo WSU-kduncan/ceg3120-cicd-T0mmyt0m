@@ -14,3 +14,8 @@ To verify Docker is installed correctly (command prompt/powershell):
 ```bash
 docker --version
 ```
+
+To confirm the Docker is running and containers work:
+```
+docker run hello-world
+```
