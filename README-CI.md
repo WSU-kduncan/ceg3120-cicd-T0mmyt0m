@@ -126,9 +126,7 @@ Authenticate to DockerHub via CLI
 ```
 docker login -u YOUR-USERNAME
 ```
-```
 Password: your PAT (not your account password & assuming you saved it somewhere safe)
-```
 
 Push Image to DockerHub
 ```
