@@ -1,0 +1,12 @@
+FROM node:18-bullseye
+
+WORKDIR /app
+
+COPY wsu-hw-ng-main/ .
+
+RUN npm install -g @angular/cli \
+    && npm install \
+    && ng build --prod \
+    && npm install -g http-server
+
+CMD ["http-server", "dist/wsu-hw-ng-main", "-p", "4200"]
