@@ -102,3 +102,40 @@ docker run -p 4200:4200 yourdockerhubusername/projectname
 Container side: http-server should output available URLs
 
 Host side: Visit [http://localhost:4200](http://localhost:4200) to confirm app is live
+
+## 4. Working with your DockerHub Repository
+### Create a Public Repository
+Go to [https://hub.docker.com](https://hub.docker.com)
+
+Create a new repository with:
+
+Visibility: Public
+
+Name: `<yourlastname>-CEG3120`
+
+Create a Personal Access Token (PAT)
+Go to [https://app.docker.com/settings/personal-access-tokens](https://app.docker.com/settings/personal-access-tokens)
+
+Click `Generate New Token`
+
+Set scope to Read/Write
+
+Copy the token and save it somewhere safe (you won’t see it again)
+
+Authenticate to DockerHub via CLI
+```
+docker login -u YOUR-USERNAME
+```
+```
+Password: your PAT (not your account password & assuming you saved it somewhere safe)
+```
+
+Push Image to DockerHub
+```
+docker push yourdockerhubusername/projectname
+```
+
+Repository Link
+```
+https://hub.docker.com/repository/docker/YOUR_DOCKERHUB_USERNAME/YOUR_REPO_NAME
+```
