@@ -137,3 +137,10 @@ Repository Link
 
 [https://hub.docker.com/r/tummyz0/pua-ceg3120](https://hub.docker.com/r/tummyz0/pua-ceg3120)
 
+### References
+
+[Creating and running an Angular application in a Docker container](https://dev.to/rodrigokamada/creating-and-running-an-angular-application-in-a-docker-container-40mk)
+
+[Docker documentation on how to create a repository](https://docs.docker.com/docker-hub/repos/create/)
+
+[dockerfile documentation](https://docs.docker.com/reference/dockerfile/)
