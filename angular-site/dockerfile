@@ -6,7 +6,7 @@ COPY wsu-hw-ng-main/ .
 
 RUN npm install -g @angular/cli \
     && npm install \
-    && ng build --prod \
+    && ng build --configuration production \
     && npm install -g http-server
 
 CMD ["http-server", "dist/wsu-hw-ng-main", "-p", "4200"]
