@@ -207,6 +207,8 @@ docker pull tummyz0/pua-ceg3120:latest
 docker run --rm tummyz0/pua-ceg3120:latest
 ```
 
+# Part 3 (Coming Soon)
+
 ### References
 
 #### Part 1
@@ -226,3 +228,5 @@ docker run --rm tummyz0/pua-ceg3120:latest
 [Build and push Docker images](https://github.com/marketplace/actions/build-and-push-docker-images)
 
 [GitHub Actions 101](https://github.com/pattonsgirl/CEG3120/blob/main/CourseNotes/github-actions.md)
+
+#### Part 3 (Coming Soon)
