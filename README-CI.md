@@ -1,5 +1,7 @@
 # Angular Container Deployment - CI Guide - Windows OS
 
+# Part 1
+
 ## 1. Docker Setup
 
 ### Installing Docker
@@ -136,6 +138,74 @@ docker push yourdockerhubusername/projectname
 Repository Link
 
 [https://hub.docker.com/r/tummyz0/pua-ceg3120](https://hub.docker.com/r/tummyz0/pua-ceg3120)
+
+# Part 2
+
+## Configuring GitHub Repository Secrets
+
+### 1. Creating a DockerHub Personal Access Token (PAT)
+- Go to [DockerHub Security Settings](https://hub.docker.com/settings/security)
+- Click **Generate New Token**
+- Name it something you like
+- **Recommended Scope**: `Read/Write` (needed to push images)
+- Copy the token — you won't see it again!!!
+
+### 2. Setting Repository Secrets in GitHub
+In your GitHub repo:
+- Go to **Settings, Secrets and variables, Actions**
+- Click **"New repository secret"** and add:
+  - `DOCKER_USERNAME` → your DockerHub username
+  - `DOCKER_TOKEN` → the access token you just generated
+
+### 3. Secrets Set for This Project
+
+ `DOCKER_USERNAME`  DockerHub username              
+ `DOCKER_TOKEN`     DockerHub Personal Access Token 
+
+## CI with GitHub Actions
+
+### 1. What the Workflow Does
+This GitHub Actions workflow:
+- Triggers on pushes to the `main` branch
+- Builds a Docker image using the `dockerfile` in `angular-site/`
+- Logs into DockerHub using repository secrets
+- Pushes the image to your DockerHub repository
+
+### 2. Workflow Steps Explained
+- **Checkout**: Pulls the code from the repo
+- **Login to DockerHub**: Uses secrets to authenticate
+- **Setup Docker Buildx**: Enables advanced build capabilities
+- **Build & Push Image**: Builds the Docker image and pushes to DockerHub
+
+### 3. What to Update for Your Own Repo
+
+#### Workflow Changes
+Update in `.github/workflows/docker-publish.yml`:
+- `context: ./angular-site` → path to your Dockerfile
+- `tags: yourdockerhubusername/your-image-name:latest` → your actual DockerHub repo/tag
+
+#### Repo Changes
+- Make sure a `dockerfile` exists in the path you reference
+- Adjust secret names only if you change them in the workflow
+
+### Workflow File
+[View the GitHub Actions Workflow Here](https://github.com/WSU-kduncan/ceg3120-cicd-T0mmyt0m/blob/main/.github/workflows/main.yml)
+
+## Testing & Validating
+
+### 1. Testing the Workflow
+- Push a commit to the `main` branch
+- Go to the **Actions** tab in GitHub
+- Confirm the workflow runs successfully without errors
+
+### 2. Verifying the Docker Image
+- Log in to DockerHub and check for your new image under **Repositories**
+- Test the image locally:
+
+```bash
+docker pull yourdockerhubusername/your-image-name:latest
+docker run --rm yourdockerhubusername/your-image-name:latest
+```
 
 ### References
 
