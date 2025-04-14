@@ -180,9 +180,9 @@ This GitHub Actions workflow:
 ### 3. What to Update for Your Own Repo
 
 #### Workflow Changes
-Update in `.github/workflows/docker-publish.yml`:
-- `context: ./angular-site` → path to your Dockerfile
-- `tags: yourdockerhubusername/your-image-name:latest` → your actual DockerHub repo/tag
+Update in `.github/workflows/main.yml`:
+- `context: ./angular-site` - path to your `dockerfile`
+- `tags: yourdockerhubusername/your-image-name:latest` - your actual DockerHub repo/tag
 
 #### Repo Changes
 - Make sure a `dockerfile` exists in the path you reference
@@ -209,8 +209,20 @@ docker run --rm tummyz0/pua-ceg3120:latest
 
 ### References
 
+#### Part 1
+
 [Creating and running an Angular application in a Docker container](https://dev.to/rodrigokamada/creating-and-running-an-angular-application-in-a-docker-container-40mk)
 
 [Docker documentation on how to create a repository](https://docs.docker.com/docker-hub/repos/create/)
 
 [dockerfile documentation](https://docs.docker.com/reference/dockerfile/)
+
+#### Part 2
+
+[Github Actions](https://docs.github.com/en/actions/security-for-github-actions/security-guides/using-secrets-in-github-actions)
+
+[Publishing Docker images](https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-docker-images)
+
+[Build and push Docker images](https://github.com/marketplace/actions/build-and-push-docker-images)
+
+[GitHub Actions 101](https://github.com/pattonsgirl/CEG3120/blob/main/CourseNotes/github-actions.md)
