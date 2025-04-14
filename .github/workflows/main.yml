@@ -24,5 +24,7 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
+          context: ./angular-site
+          file: ./angular-site/Dockerfile
           push: true
           tags: tummyz0/pua-ceg3120:latest
