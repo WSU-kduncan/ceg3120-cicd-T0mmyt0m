@@ -202,9 +202,9 @@ Update in `.github/workflows/docker-publish.yml`:
 - Log in to DockerHub and check for your new image under **Repositories**
 - Test the image locally:
 
-```bash
-docker pull yourdockerhubusername/your-image-name:latest
-docker run --rm yourdockerhubusername/your-image-name:latest
+```
+docker pull tummyz0/pua-ceg3120:latest:latest
+docker run --rm tummyz0/pua-ceg3120:latest:latest
 ```
 
 ### References
