@@ -203,8 +203,8 @@ Update in `.github/workflows/docker-publish.yml`:
 - Test the image locally:
 
 ```
-docker pull tummyz0/pua-ceg3120:latest:latest
-docker run --rm tummyz0/pua-ceg3120:latest:latest
+docker pull tummyz0/pua-ceg3120:latest
+docker run --rm tummyz0/pua-ceg3120:latest
 ```
 
 ### References
