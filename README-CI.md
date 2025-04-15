@@ -207,7 +207,11 @@ docker pull tummyz0/pua-ceg3120:latest
 docker run --rm tummyz0/pua-ceg3120:latest
 ```
 
-# Part 3 (Coming Soon)
+# Part 3
+
+## Diagram of how this project works
+
+![Screenshot 2025-04-15 164009](https://github.com/user-attachments/assets/04e5960d-6111-45e0-b1cd-5f885d4b87de)
 
 ### References
 
