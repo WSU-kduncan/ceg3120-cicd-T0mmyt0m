@@ -1,17 +1,20 @@
 # Angular Container Deployment - CI Guide - Windows OS
 
-    Continuous Integration Project Overview
-        What is the goal of this project
-        What tools are used in this project and what are their roles
-        Diagram of project
-        [If applicable] What is not working in this project
-    Resources Section
-        Note: this can be at document top, scattered within document as resources were used, or placed at bottom
-        Add resources used in the project by link. If generative AI was used, state which platform and what prompts were given.
+## Project Goals
 
-## Project goals
+The goal of this project is to set up a GitHub repository that automatically builds and pushes a Docker image to DockerHub whenever changes are made. GitHub Actions handles the automation, and GitHub Secrets are used to authenticate to DockerHub repository.
 
-The goal for this project is to create a GitHub repository that automatically syncs the repo to DockerHub using GitHub secrets to authenticate and GitHub Actions to Build and push the image to Docker.
+## Tools Used
+
+- Windows OS with WSL - (optional) if you like linux
+- Docker Desktop - for desktop experience GUI
+- GitHub Account - the point of the project
+- Docker Account - important part of the project
+- Lucidchart - for drawing diagrams
+
+## Whats not Working?
+
+If you visit `http://localhost:4200` It does not work
 
 # Part 1
 
