@@ -1,5 +1,18 @@
 # Angular Container Deployment - CI Guide - Windows OS
 
+    Continuous Integration Project Overview
+        What is the goal of this project
+        What tools are used in this project and what are their roles
+        Diagram of project
+        [If applicable] What is not working in this project
+    Resources Section
+        Note: this can be at document top, scattered within document as resources were used, or placed at bottom
+        Add resources used in the project by link. If generative AI was used, state which platform and what prompts were given.
+
+## Project goals
+
+The goal for this project is to create a GitHub repository that automatically syncs the repo to DockerHub using GitHub secrets to authenticate and GitHub Actions to Build and push the image to Docker.
+
 # Part 1
 
 ## 1. Docker Setup
@@ -233,4 +246,6 @@ docker run --rm tummyz0/pua-ceg3120:latest
 
 [GitHub Actions 101](https://github.com/pattonsgirl/CEG3120/blob/main/CourseNotes/github-actions.md)
 
-#### Part 3 (Coming Soon)
+#### Part 3 
+
+Diagram software provided by [Lucidchart](https://www.lucidchart.com/pages)
