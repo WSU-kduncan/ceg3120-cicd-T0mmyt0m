@@ -102,10 +102,10 @@ docker pull tummyz0/pua-ceg3120:0.1.0
 
 - Run Image 
 ```
-docker run -p 8080:80 tummyz0/pua-ceg3120:0.1.0
+docker run -p 4200:4200 tummyz0/pua-ceg3120:0.1.0
 ```
 
-- Visit `http://localhost:8080` in your browser to verify it is working as expected.
+- Visit `http://localhost:4200` in your browser to verify it is working as expected.
 
 ## References
 
