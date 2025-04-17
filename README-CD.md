@@ -42,7 +42,7 @@ Pushes that image to DockerHub with the following tags:
 
 ## Explanation of Workflow Steps
 
-- Checkout Code – Pulls repository code into the GitHub runner.
+- Checkout Code – Pulls repository code into the GitHub.
 
 - Log in to DockerHub – Uses GitHub secrets to authenticate to DockerHub.
 
