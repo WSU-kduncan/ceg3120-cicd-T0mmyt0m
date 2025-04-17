@@ -106,3 +106,9 @@ docker run -p 8080:80 tummyz0/pua-ceg3120:0.1.0
 ```
 
 - Visit `http://localhost:8080` in your browser to verify it is working as expected.
+
+References
+
+[Manage tags and labels with GitHub Actions](https://docs.docker.com/build/ci/github-actions/manage-tags-labels/)
+
+[Docker Metadata action](https://github.com/marketplace/actions/docker-metadata-action)
