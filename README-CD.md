@@ -42,15 +42,15 @@ Pushes that image to DockerHub with the following tags:
 
 ## Explanation of Workflow Steps
 
-Checkout Code – Pulls repository code into the GitHub runner.
+- Checkout Code – Pulls repository code into the GitHub runner.
 
-Log in to DockerHub – Uses GitHub secrets to authenticate to DockerHub.
+- Log in to DockerHub – Uses GitHub secrets to authenticate to DockerHub.
 
-Set Up Docker Buildx – Prepares Docker to build multi-platform images.
+- Set Up Docker Buildx – Prepares Docker to build multi-platform images.
 
-Generate Metadata – Uses docker/metadata-action to extract version info from the Git tag and create appropriate tags.
+- Generate Metadata – Uses docker/metadata-action to extract version info from the Git tag and create appropriate tags.
 
-Build and Push Image – Builds the Docker image and pushes it to DockerHub with all relevant tags.
+- Build and Push Image – Builds the Docker image and pushes it to DockerHub with all relevant tags.
 
 ## Explanation / Highlight of Values That Need Updated for Another Repository
 
