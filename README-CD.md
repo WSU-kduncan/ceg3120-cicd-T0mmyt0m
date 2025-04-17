@@ -40,10 +40,11 @@ Pushes that image to DockerHub with the following tags:
 
 - major.minor.patch = `0.1.0`
 
-Explanation of Workflow Steps
+## Explanation of Workflow Steps
+
 Checkout Code – Pulls repository code into the GitHub runner.
 
-Log in to DockerHub – Uses GitHub secrets to authenticate DockerHub access.
+Log in to DockerHub – Uses GitHub secrets to authenticate to DockerHub.
 
 Set Up Docker Buildx – Prepares Docker to build multi-platform images.
 
@@ -51,25 +52,30 @@ Generate Metadata – Uses docker/metadata-action to extract version info from t
 
 Build and Push Image – Builds the Docker image and pushes it to DockerHub with all relevant tags.
 
-Explanation / Highlight of Values That Need Updated for Another Repository
-Changes in Workflow
-Update this line to match your DockerHub repository:
+## Explanation / Highlight of Values That Need Updated for Another Repository
 
-yaml
-Copy
-Edit
+### Changes in Workflow
+
+- Update this line to match your DockerHub repository:
+
+```
 images: yourdockerhubusername/your-image-name
-Update build context or Dockerfile path if not using ./angular-site.
+```
 
-Changes in Repository
-Ensure you have a valid Dockerfile and the .github/workflows/docker-publish.yml workflow.
+- Update build context or Dockerfile path if not using ./angular-site.
 
-Add the following secrets in GitHub:
+### Changes in Repository
 
+Make sure you have a valid `dockerfile` and the `.github/workflows/main.yml` workflow.
+
+### Add the following secrets in GitHub:
+```
 DOCKER_USERNAME
+```
+```
+DOCKER_TOKEN 
+```
 
-DOCKER_TOKEN (or password)
-
-Link to Workflow File
-Link to Workflow File
+## Link to Workflow File
+[main.yml](https://github.com/WSU-kduncan/ceg3120-cicd-T0mmyt0m/blob/main/.github/workflows/main.yml)
 
