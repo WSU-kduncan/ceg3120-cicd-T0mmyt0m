@@ -12,10 +12,6 @@ The goal of this project is to set up a GitHub repository that automatically bui
 - Docker Account - important part of the project
 - Lucidchart - for drawing diagrams
 
-## Whats not Working?
-
-If you visit `http://localhost:4200` It does not work
-
 # Part 1
 
 ## 1. Docker Setup
