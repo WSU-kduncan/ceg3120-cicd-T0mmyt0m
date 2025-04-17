@@ -28,7 +28,6 @@ jobs:
         with:
           images: tummyz0/pua-ceg3120
           tags: |
-            type=semver,pattern={{version}}
             type=semver,pattern={{major}}
             type=semver,pattern={{major}}.{{minor}}
             type=raw,value=latest
