@@ -38,6 +38,8 @@ Pushes that image to DockerHub with the following tags:
 
 - major.minor = `0.1`
 
+- major.minor.patch = `0.1.0`
+
 
 ## Explanation of Workflow Steps
 
