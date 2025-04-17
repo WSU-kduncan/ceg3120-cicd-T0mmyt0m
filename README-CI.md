@@ -87,7 +87,7 @@ RUN npm install -g @angular/cli \
     && npm install \
     && ng build --configuration production \
     && npm install -g http-server
-CMD ["http-server", "dist/YOUR_APP_NAME", "-p", "4200"]
+CMD ["http-server", "dist/wsu-hw-ng", "-p", "4200", "-a", "0.0.0.0"]
 ```
 
 ### Summary:
