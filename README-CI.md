@@ -81,12 +81,18 @@ Recall Step 2 as we are now performing the same actions, but this time within a 
 dockerfile
 ```
 FROM node:18-bullseye
+
 WORKDIR /app
-COPY wsu-hw-ng-main/ .
+
+COPY wsu-hw-ng-main/ ./wsu-hw-ng-main
+
+WORKDIR /app/wsu-hw-ng-main
+
 RUN npm install -g @angular/cli \
     && npm install \
     && ng build --configuration production \
     && npm install -g http-server
+
 CMD ["http-server", "dist/wsu-hw-ng", "-p", "4200", "-a", "0.0.0.0"]
 ```
 
