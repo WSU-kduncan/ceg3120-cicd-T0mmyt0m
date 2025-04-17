@@ -75,6 +75,32 @@ DOCKER_USERNAME
 DOCKER_TOKEN 
 ```
 
-## Link to Workflow File
+### Link to Workflow File
 [main.yml](https://github.com/WSU-kduncan/ceg3120-cicd-T0mmyt0m/blob/main/.github/workflows/main.yml)
 
+Testing & Validating
+
+    How to test that your workflow did its tasking
+    How to verify that the image in DockerHub works when a container is run using the image
+## Testing & Validating
+
+### Ways to test if the workflow is working
+
+- Log in to DockerHub.
+- Click on your repository.
+- Under `General` tab you can see `Tags` section, which list all the versions including the latest version of the image as well as time it was published.
+- Alternatively you can check `Actions` tab on github.
+
+### Verifying working image
+
+- Pull Image
+```
+docker pull tummyz0/pua-ceg3120:0.1.0
+```
+
+- Run Image 
+```
+docker run -p 8080:80 tummyz0/pua-ceg3120:0.1.0
+```
+
+- Visit `http://localhost:8080` in your browser to verify it is working as expected.
