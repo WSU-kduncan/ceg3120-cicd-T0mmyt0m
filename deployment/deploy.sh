@@ -3,16 +3,16 @@
 # --- Configuration ---
 # STOP: Don't run this script without replacing these placeholder values!
 
-# Name for your container (choose something descriptive)
-CONTAINER_NAME="my-awesome-app"
+# Name for your container
+CONTAINER_NAME="tummyz0/pua-ceg3120"
 
 # Your Docker Hub username
-DOCKERHUB_USERNAME="your_dockerhub_username"
+DOCKERHUB_USERNAME="tummyz0"
 
 # The name of your repository on Docker Hub
-DOCKERHUB_REPO="your_repository_name"
+DOCKERHUB_REPO="tummyz0/pua-ceg3120"
 
-# The tag you want to pull (e.g., "latest", "v1.2.0")
+# The tag you want to pull
 IMAGE_TAG="latest"
 
 # Docker run options (customize as needed!)
