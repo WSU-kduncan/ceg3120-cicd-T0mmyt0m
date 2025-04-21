@@ -19,7 +19,7 @@ IMAGE_TAG="latest"
 # Example: Run detached (-d), map host port 8080 to container port 80 (-p 8080:80),
 # set restart policy (--restart always), pass environment variables (-e VAR=value)
 # Make sure to include '-d' if you want it to run in the background.
-DOCKER_RUN_OPTIONS="-d -p 80:80 --restart unless-stopped"
+DOCKER_RUN_OPTIONS="-d -p 4200:4200 --restart unless-stopped"
 
 # --- Script Logic ---
 
