@@ -2,6 +2,49 @@
 
 This document explains how to manage versioning with Git tags, semantic versioning, and how to automate container image builds and pushes using GitHub Actions.
 
+Continuous Deployment Project Overview
+
+    What is the goal of this project
+    What tools are used in this project and what are their roles
+    Diagram of project
+    [If applicable] What is not working in this project
+## Project goals
+
+The goal of this project is to automate the deployment of a Dockerized Angular application Image to an AWS EC2 instance using a CD pipeline.
+It ensures that whenever a new Docker image is pushed to DockerHub (via GitHub Actions), a webhook listener on the EC2 instance automatically:
+
+ - Pulls the latest image
+
+ - Stops and removes the old container
+
+ - Runs the new container
+
+## Tools and Their Roles
+
+### AWS EC2:
+ - Hosts the application server (runs Docker, webhook listener).
+
+### Docker:
+ - Packages the Angular app into a container image; runs containers on EC2.
+
+### DockerHub:
+ - Stores and distributes the Docker images; triggers webhooks when new images are pushed.
+
+### GitHub:
+ - Source code repository; optionally uses GitHub Actions to build and push images to DockerHub.
+
+### Webhook (adnanh's webhook):
+ - Listens for incoming HTTP payloads from DockerHub and triggers the bash deployment script.
+
+### Systemd (webhook.service):
+ - Ensures the webhook listener auto-starts and stays running on EC2.
+
+### Script (deploy.sh):
+ - Handles pulling the new Docker image, stopping/removing the old container, and starting the updated one automatically.
+
+
+
+ 
 # Part 1
 
 ## Generating Tags
@@ -293,6 +336,11 @@ sudo systemctl status webhook
 ```
 journalctl -u webhook -f
 ```
+
+# Part 3 
+
+## Project Description & Diagram
+
 
 [hooks.json](https://github.com/WSU-kduncan/ceg3120-cicd-T0mmyt0m/blob/main/deployment/webhook/hooks.json)
 
