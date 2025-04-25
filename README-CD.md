@@ -335,11 +335,6 @@ sudo systemctl status webhook
 journalctl -u webhook -f
 ```
 
-# Part 3 
-
-## Project Description & Diagram
-
-
 [hooks.json](https://github.com/WSU-kduncan/ceg3120-cicd-T0mmyt0m/blob/main/deployment/webhook/hooks.json)
 
 ## References
