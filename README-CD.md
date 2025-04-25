@@ -115,7 +115,7 @@ docker run -p 4200:4200 tummyz0/pua-ceg3120:0.1.0
 
 ## EC2 Instance Details
 
-- AMI Information: Ubuntu Server 22.04 LTS (64-bit)
+- AMI Information: Ubuntu Server 24.04 LTS (64-bit)
 - AMI ID: ami-084568db4383264d4
 - Instance Type: t2.medium
 - Volume Size: 30 GB
@@ -210,67 +210,66 @@ bash /var/scripts/deploy.sh
 [deploy.sh](https://github.com/WSU-kduncan/ceg3120-cicd-T0mmyt0m/blob/main/deployment/deploy.sh)
 
 ## Configuring Webhook Listener on EC2
-Install webhook:
+
+### Install webhook:
 
 ```
 sudo apt install webhook -y
 ```
 
-Verify installation:
+### Verify installation:
 
 ```
 which webhook
 ```
 
-Webhook definition file:
+### Webhook definition file:
+ 
  - Contains hook ID, command path, and security via token
 
-Validates trigger based on token in URL
+ - Validates trigger based on `token` in URL
 
-Confirm definition loaded:
+### Confirm definition loaded:
 
 ```
 journalctl -u webhook -f
 ```
 
-Look for:
+### Look for:
 
-listening on port 9000
-
-hook triggered successfully
+`serving hooks on` with port 9000
 
 Docker confirmation:
-bash
-Copy
-Edit
+
+```
 docker ps
-🔗 View hooks.json
+```
 
-✅ Configuring Payload Sender
-Selected Sender: DockerHub
-Simpler setup
+## Configuring Payload Sender
+ 
+### Selected Sender: DockerHub
+ 
+ - Automatically triggers webhook on new image push
 
-Automatically triggers webhook on new image push
+### Trigger setup:
+ 
+ - In DockerHub,Repo, Webhooks
 
-Trigger setup:
-In DockerHub → Repo → Webhooks
-
-Payload URL:
-
-php-template
-Copy
-Edit
+```
 http://<ec2-ip>:9000/hooks/redeploy-webhook?token=<yourtoken>
-Confirm successful trigger:
-journalctl -u webhook -f shows payload received
+```
 
-Container auto-restarts with updated image
+### Confirm successful trigger:
+ 
+ - `journalctl -u webhook -f` shows payload received, can be seen on CLI
+ 
+ - Container auto-restarts with updated image
 
-✅ Configure Webhook Service on EC2
-webhook.service Summary:
-Starts webhook on boot
+## Configure Webhook Service on EC2
 
-Loads hooks.json automatically
+ - webhook.service Summary:
+ - Starts webhook on boot
+ - Loads hooks.json automatically
 
 Runs under ubuntu user with docker group permissions
 
