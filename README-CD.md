@@ -107,6 +107,175 @@ docker run -p 4200:4200 tummyz0/pua-ceg3120:0.1.0
 
 - Visit `http://localhost:4200` in your browser to verify it is working as expected.
 
+Part2
+
+# Automated Container Deployment using DockerHub + Webhook on AWS EC2
+
+## ✅ EC2 Instance Details
+
+- **AMI Information:** Ubuntu Server 22.04 LTS (64-bit)
+- **Instance Type:** t2.micro (sufficient for testing & light workloads)
+- **Recommended Volume Size:** 10–20 GB (depending on app size)
+- **Security Group Configuration:**
+  - Port 22 (SSH) - for remote access
+  - Port 9000 (Webhook Listener)
+  - Port 4200 (Angular app access)
+- **Justification:** 
+  - SSH for admin access
+  - 9000 for webhook payloads
+  - 4200 for serving app externally
+
+---
+
+## ✅ Docker Setup on EC2 Instance
+
+### Install Docker
+```bash
+sudo apt update
+sudo apt install docker.io -y
+sudo systemctl enable docker
+sudo systemctl start docker
+Add current user to docker group (to avoid sudo)
+bash
+Copy
+Edit
+sudo usermod -aG docker $USER
+Confirm Docker is working:
+bash
+Copy
+Edit
+docker --version
+docker run hello-world
+✅ Testing on EC2 Instance
+Pull image from DockerHub
+bash
+Copy
+Edit
+docker pull yourdockerhub/image-name:tag
+Run container
+bash
+Copy
+Edit
+# Dev mode (interactive)
+docker run -it -p 4200:4200 yourdockerhub/image-name:tag
+
+# Prod mode (detached)
+docker run -d -p 4200:4200 yourdockerhub/image-name:tag
+Validate app is served:
+Inside container: curl localhost:4200
+
+From host: curl localhost:4200
+
+From browser: http://<your-ec2-ip>:4200
+
+Manual refresh steps:
+bash
+Copy
+Edit
+docker stop <container>
+docker rm <container>
+docker pull yourdockerhub/image-name:tag
+docker run -d -p 4200:4200 yourdockerhub/image-name:tag
+✅ Scripting Container Application Refresh
+Bash script: deploy.sh
+This script:
+
+Stops & removes old container
+
+Pulls latest image
+
+Runs a new container
+
+Test it manually:
+
+bash
+Copy
+Edit
+bash /var/scripts/deploy.sh
+🔗 View deploy.sh
+
+✅ Configuring Webhook Listener on EC2
+Install webhook:
+bash
+Copy
+Edit
+sudo apt install webhook -y
+Verify installation:
+bash
+Copy
+Edit
+which webhook
+Webhook definition file:
+Contains hook ID, command path, and security via token
+
+Validates trigger based on token in URL
+
+Confirm definition loaded:
+bash
+Copy
+Edit
+journalctl -u webhook -f
+Look for:
+
+listening on port 9000
+
+hook triggered successfully
+
+Docker confirmation:
+bash
+Copy
+Edit
+docker ps
+🔗 View hooks.json
+
+✅ Configuring Payload Sender
+Selected Sender: DockerHub
+Simpler setup
+
+Automatically triggers webhook on new image push
+
+Trigger setup:
+In DockerHub → Repo → Webhooks
+
+Payload URL:
+
+php-template
+Copy
+Edit
+http://<ec2-ip>:9000/hooks/redeploy-webhook?token=<yourtoken>
+Confirm successful trigger:
+journalctl -u webhook -f shows payload received
+
+Container auto-restarts with updated image
+
+✅ Configure Webhook Service on EC2
+webhook.service Summary:
+Starts webhook on boot
+
+Loads hooks.json automatically
+
+Runs under ubuntu user with docker group permissions
+
+Enable + start:
+bash
+Copy
+Edit
+sudo cp webhook.service /etc/systemd/system/
+sudo systemctl daemon-reexec
+sudo systemctl daemon-reload
+sudo systemctl enable webhook
+sudo systemctl start webhook
+Validate:
+bash
+Copy
+Edit
+sudo systemctl status webhook
+Logs:
+bash
+Copy
+Edit
+journalctl -u webhook -f
+
 ## References
 
 [Manage tags and labels with GitHub Actions](https://docs.docker.com/build/ci/github-actions/manage-tags-labels/)
