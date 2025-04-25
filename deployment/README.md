@@ -83,4 +83,7 @@ webhook -version
     rm -r webhook-linux-${ARCH}/ # Be careful with rm -r! Double-check directory name.
    ```
 
+# References
+
+ - [adnanh/webhook](https://github.com/adnanh/webhook)
    
