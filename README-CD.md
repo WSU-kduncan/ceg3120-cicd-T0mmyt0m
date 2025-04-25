@@ -133,28 +133,34 @@ docker run -p 4200:4200 tummyz0/pua-ceg3120:0.1.0
 ## ✅ Docker Setup on EC2 Instance
 
 ### Install Docker
-```bash
+
+```
 sudo apt update
 sudo apt install docker.io -y
 sudo systemctl enable docker
 sudo systemctl start docker
+```
+
 Add current user to docker group (to avoid sudo)
-bash
-Copy
-Edit
+
+```
 sudo usermod -aG docker $USER
+```
+
 Confirm Docker is working:
-bash
-Copy
-Edit
+
+```
 docker --version
 docker run hello-world
-✅ Testing on EC2 Instance
+```
+
+Testing on EC2 Instance
 Pull image from DockerHub
-bash
-Copy
-Edit
+
+```
 docker pull yourdockerhub/image-name:tag
+```
+
 Run container
 bash
 Copy
