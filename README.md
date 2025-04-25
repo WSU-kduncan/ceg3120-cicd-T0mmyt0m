@@ -18,4 +18,4 @@ Together, these enable automatic deployment whenever a new Docker image is pushe
     
     - Documentation on `Continuous Deployment` and how to do it step by step.
 
-# The End
+# The End - see that wasn't so bad.
