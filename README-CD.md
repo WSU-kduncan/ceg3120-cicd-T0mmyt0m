@@ -128,11 +128,9 @@ docker run -p 4200:4200 tummyz0/pua-ceg3120:0.1.0
   - 9000 for webhook payloads
   - 4200 for serving app externally
 
----
+## Docker Setup on EC2 Instance
 
-## ✅ Docker Setup on EC2 Instance
-
-### Install Docker
+### Install Docker on AWS EC2
 
 ```
 sudo apt update
@@ -141,67 +139,73 @@ sudo systemctl enable docker
 sudo systemctl start docker
 ```
 
-Add current user to docker group (to avoid sudo)
+### Add current user to docker group (to avoid sudo)
 
 ```
 sudo usermod -aG docker $USER
-```
 
-Confirm Docker is working:
+```
+### Confirm Docker is working:
 
 ```
 docker --version
 docker run hello-world
 ```
 
-Testing on EC2 Instance
-Pull image from DockerHub
+## Testing on EC2 Instance
+
+### Pull image from DockerHub
 
 ```
 docker pull yourdockerhub/image-name:tag
 ```
 
-Run container
-bash
-Copy
-Edit
+### Run container
+
 # Dev mode (interactive)
+```
 docker run -it -p 4200:4200 yourdockerhub/image-name:tag
+```
 
 # Prod mode (detached)
+
+```
 docker run -d -p 4200:4200 yourdockerhub/image-name:tag
-Validate app is served:
-Inside container: curl localhost:4200
+```
 
-From host: curl localhost:4200
+## Validate app/web is served in AWS:
+ - Inside container CLI: `curl localhost:4200`
 
-From browser: http://<your-ec2-ip>:4200
+ - From host: curl localhost:4200
 
-Manual refresh steps:
-bash
-Copy
-Edit
+ - From browser: http://<your-ec2-ip>:4200
+
+## Manual refresh steps:
+
+```
 docker stop <container>
 docker rm <container>
 docker pull yourdockerhub/image-name:tag
 docker run -d -p 4200:4200 yourdockerhub/image-name:tag
-✅ Scripting Container Application Refresh
+```
+
+## Scripting Container Application Refresh
 Bash script: deploy.sh
-This script:
 
-Stops & removes old container
 
-Pulls latest image
+## This script
+ - Stops & removes old container
 
-Runs a new container
+ - Pulls latest image
 
-Test it manually:
+ - Runs a new container
 
-bash
-Copy
-Edit
+## Test it manually
+
+```
 bash /var/scripts/deploy.sh
-🔗 View deploy.sh
+```
+View deploy.sh
 
 ✅ Configuring Webhook Listener on EC2
 Install webhook:
