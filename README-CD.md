@@ -33,7 +33,7 @@ It ensures that whenever a new Docker image is pushed to DockerHub (via GitHub A
 ### GitHub:
  - Source code repository; optionally uses GitHub Actions to build and push images to DockerHub.
 
-### Webhook (adnanh's webhook):
+### Webhook ([adnanh's webhook](https://github.com/adnanh/webhook)):
  - Listens for incoming HTTP payloads from DockerHub and triggers the bash deployment script.
 
 ### Systemd (webhook.service):
