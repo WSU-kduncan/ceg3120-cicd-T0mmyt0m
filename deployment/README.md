@@ -1,4 +1,6 @@
-SSH into your EC2 Instance:
+# Guide to install Webhook
+
+## SSH into your EC2 Instance:
 
 ```
 ssh -i /path/to/your/key.pem ubuntu@your_ec2_public_ip
