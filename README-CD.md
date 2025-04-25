@@ -21,7 +21,7 @@ It ensures that whenever a new Docker image is pushed to DockerHub (via GitHub A
 
 ## Tools and Their Roles
 
-### AWS EC2:
+### AWS EC2 Instance:
  - Hosts the application server (runs Docker, webhook listener).
 
 ### Docker:
@@ -31,20 +31,24 @@ It ensures that whenever a new Docker image is pushed to DockerHub (via GitHub A
  - Stores and distributes the Docker images; triggers webhooks when new images are pushed.
 
 ### GitHub:
- - Source code repository; optionally uses GitHub Actions to build and push images to DockerHub.
+ - Source code repository; uses GitHub Actions to build and push images to DockerHub.
 
 ### Webhook ([adnanh's webhook](https://github.com/adnanh/webhook)):
  - Listens for incoming HTTP payloads from DockerHub and triggers the bash deployment script.
 
 ### Systemd (webhook.service):
- - Ensures the webhook listener auto-starts and stays running on EC2.
+ - Ensures the webhook listener auto-starts and stays running on EC2 Instance.
 
 ### Script (deploy.sh):
  - Handles pulling the new Docker image, stopping/removing the old container, and starting the updated one automatically.
 
+# Diagram
 
 
- 
+![Screenshot 2025-04-25 134948](https://github.com/user-attachments/assets/32166b7b-9cd2-4ab8-8c2c-8bfdc76c2afb)
+
+Source : Author
+
 # Part 1
 
 ## Generating Tags
