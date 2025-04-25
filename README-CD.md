@@ -2,6 +2,8 @@
 
 This document explains how to manage versioning with Git tags, semantic versioning, and how to automate container image builds and pushes using GitHub Actions.
 
+# Part 1
+
 ## Generating Tags
 
 ### How to See Tags in a Git Repository
@@ -107,20 +109,21 @@ docker run -p 4200:4200 tummyz0/pua-ceg3120:0.1.0
 
 - Visit `http://localhost:4200` in your browser to verify it is working as expected.
 
-Part2
+# Part 2
 
 # Automated Container Deployment using DockerHub + Webhook on AWS EC2
 
-## ✅ EC2 Instance Details
+## EC2 Instance Details
 
-- **AMI Information:** Ubuntu Server 22.04 LTS (64-bit)
-- **Instance Type:** t2.micro (sufficient for testing & light workloads)
-- **Recommended Volume Size:** 10–20 GB (depending on app size)
-- **Security Group Configuration:**
+- AMI Information: Ubuntu Server 22.04 LTS (64-bit)
+- AMI ID: ami-084568db4383264d4
+- Instance Type: t2.medium
+- Volume Size: 30 GB
+- Security Group Configuration:
   - Port 22 (SSH) - for remote access
-  - Port 9000 (Webhook Listener)
-  - Port 4200 (Angular app access)
-- **Justification:** 
+  - Inbound & Outbound Port 9000 (Webhook Listener)
+  - Inbound & Outboung Port 4200 (Angular app access)
+- Justification:
   - SSH for admin access
   - 9000 for webhook payloads
   - 4200 for serving app externally
