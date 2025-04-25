@@ -1,0 +1,17 @@
+[
+  {
+    "id": "redeploy-webhook",
+    "execute-command": "/var/scripts/deploy.sh",
+    "command-working-directory": "/var/webhook",
+    "trigger-rule": {
+      "match": {
+        "type": "value",
+        "value": "Bananaz00",
+        "parameter": {
+          "source": "url",
+          "name": "token"
+        }
+      }
+    }
+  }
+]
