@@ -294,10 +294,20 @@ sudo systemctl status webhook
 journalctl -u webhook -f
 ```
 
-[]()
+[hooks.json](https://github.com/WSU-kduncan/ceg3120-cicd-T0mmyt0m/blob/main/deployment/webhook/hooks.json)
 
 ## References
 
-[Manage tags and labels with GitHub Actions](https://docs.docker.com/build/ci/github-actions/manage-tags-labels/)
+### Part 1
 
-[Docker Metadata action](https://github.com/marketplace/actions/docker-metadata-action)
+ - [Manage tags and labels with GitHub Actions](https://docs.docker.com/build/ci/github-actions/manage-tags-labels/)
+
+ - [Docker Metadata action](https://github.com/marketplace/actions/docker-metadata-action)
+
+### Part 2
+
+ - [Build your first CI/CD pipeline using Docker, Github Actions, and Webhooks while creating your own web curriculum](https://blog.devgenius.io/build-your-first-ci-cd-pipeline-using-docker-github-actions-and-webhooks-while-creating-your-own-da783110e151)
+
+ - [How to create a systemd service in Linux](https://linuxhandbook.com/create-systemd-services/)
+
+### Part 3 - Coming Soon!!!
