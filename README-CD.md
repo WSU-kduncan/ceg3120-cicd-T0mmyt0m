@@ -162,12 +162,12 @@ docker pull yourdockerhub/image-name:tag
 
 ### Run container
 
-# Dev mode (interactive)
+### Dev mode (interactive)
 ```
 docker run -it -p 4200:4200 yourdockerhub/image-name:tag
 ```
 
-# Prod mode (detached)
+### Prod mode (detached)
 
 ```
 docker run -d -p 4200:4200 yourdockerhub/image-name:tag
@@ -190,10 +190,11 @@ docker run -d -p 4200:4200 yourdockerhub/image-name:tag
 ```
 
 ## Scripting Container Application Refresh
-Bash script: deploy.sh
 
+Bash script: `deploy.sh`
 
-## This script
+### This script
+
  - Stops & removes old container
 
  - Pulls latest image
@@ -205,29 +206,33 @@ Bash script: deploy.sh
 ```
 bash /var/scripts/deploy.sh
 ```
-View deploy.sh
 
-✅ Configuring Webhook Listener on EC2
+[deploy.sh](https://github.com/WSU-kduncan/ceg3120-cicd-T0mmyt0m/blob/main/deployment/deploy.sh)
+
+## Configuring Webhook Listener on EC2
 Install webhook:
-bash
-Copy
-Edit
+
+```
 sudo apt install webhook -y
+```
+
 Verify installation:
-bash
-Copy
-Edit
+
+```
 which webhook
+```
+
 Webhook definition file:
-Contains hook ID, command path, and security via token
+ - Contains hook ID, command path, and security via token
 
 Validates trigger based on token in URL
 
 Confirm definition loaded:
-bash
-Copy
-Edit
+
+```
 journalctl -u webhook -f
+```
+
 Look for:
 
 listening on port 9000
