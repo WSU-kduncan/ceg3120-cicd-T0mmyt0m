@@ -1,0 +1,13 @@
+[Unit]
+Description=Webhook Listener
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/webhook -hooks /var/webhook/hooks.json -verbose
+WorkingDirectory=/var/webhook
+Restart=always
+User=ubuntu
+Group=docker
+
+[Install]
+WantedBy=multi-user.target
