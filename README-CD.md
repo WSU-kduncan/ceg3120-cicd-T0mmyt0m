@@ -356,4 +356,6 @@ journalctl -u webhook -f
 
  - [How to create a systemd service in Linux](https://linuxhandbook.com/create-systemd-services/)
 
-### Part 3 - Coming Soon!!!
+### Part 3
+
+- [Lucidchart](https://www.lucidchart.com)
