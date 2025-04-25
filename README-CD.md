@@ -267,31 +267,34 @@ http://<ec2-ip>:9000/hooks/redeploy-webhook?token=<yourtoken>
 
 ## Configure Webhook Service on EC2
 
- - webhook.service Summary:
+### webhook.service Summary
  - Starts webhook on boot
  - Loads hooks.json automatically
+ - Runs under ubuntu user with docker group permissions
 
-Runs under ubuntu user with docker group permissions
+## Enable & start services
 
-Enable + start:
-bash
-Copy
-Edit
+```
 sudo cp webhook.service /etc/systemd/system/
 sudo systemctl daemon-reexec
 sudo systemctl daemon-reload
 sudo systemctl enable webhook
 sudo systemctl start webhook
-Validate:
-bash
-Copy
-Edit
+```
+
+## Validate
+
+```
 sudo systemctl status webhook
-Logs:
-bash
-Copy
-Edit
+```
+
+## Logs
+
+```
 journalctl -u webhook -f
+```
+
+[]()
 
 ## References
 
