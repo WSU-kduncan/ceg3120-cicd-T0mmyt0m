@@ -1,14 +1,8 @@
-# CD with GitHub Actions & DockerHub
+# Continuous Deployment (CD) with GitHub Actions & DockerHub
 
-This document explains how to manage versioning with Git tags, semantic versioning, and how to automate container image builds and pushes using GitHub Actions.
+## Continuous Deployment Project Overview
 
-Continuous Deployment Project Overview
-
-    What is the goal of this project
-    What tools are used in this project and what are their roles
-    Diagram of project
-    [If applicable] What is not working in this project
-## Project goals
+### Project goals
 
 The goal of this project is to automate the deployment of a Dockerized Angular application Image to an AWS EC2 instance using a CD pipeline.
 It ensures that whenever a new Docker image is pushed to DockerHub (via GitHub Actions), a webhook listener on the EC2 instance automatically:
