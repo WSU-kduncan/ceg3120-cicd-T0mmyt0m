@@ -1,4 +1,4 @@
-# Angular Container Deployment - CI Guide - Windows OS
+# Angular Container Deployment - Continuous Integration (CI) - Windows OS
 
 ## Project Goals
 
